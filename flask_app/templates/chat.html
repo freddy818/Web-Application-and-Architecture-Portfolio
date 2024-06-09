@@ -1,0 +1,19 @@
+{% extends 'shared/layout.html' %}
+{% block extrajs %}
+<script type="text/javascript" src="//code.jquery.com/jquery-1.4.2.min.js"></script>
+<script src="https://cdn.socket.io/3.1.1/socket.io.min.js"></script>
+{% endblock %}
+{% block maincontent %}
+    <!-- Create a container with a chat box-->
+    <div class = "mainContainer">
+        <p class = "chattitle">Chat</p>
+        <hr class = "chatsep">
+        <div id='chat'></div>
+        <!--Chat input-->
+        <p class="message">
+            <input type="text" id="msg" placeholder="Enter Your Message Here" title ="Type your message and press enter to send" />
+        </p>
+        <button id="leaveChat">Leave Chat</button>
+</div>
+
+{% endblock %}

@@ -1,0 +1,57 @@
+/** make a grid to display the chat and the fields */
+.mainContainer{
+    display: grid;
+
+
+    color: #000000;
+
+    justify-content: center;
+    justify-items: center;
+
+    text-align: center;
+    align-items: center;
+}
+
+
+/** This styling was provided in the initial chat.html, i just moved it into the css **/
+#chat {
+    width: 60vw;
+    height: 350px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    resize: none;
+    overflow-y:auto
+}
+/** styling for the input */
+#msg {
+    width: 60vw;
+    height: 5vh;
+}
+
+/* styling for header */
+.chattitle{
+    font-size: 2vw;
+    margin-bottom:0;
+}
+
+/* styling for leave button */
+#leaveChat{
+    width: 60vw;
+    height: 5vh;
+    background-color: #ccc;
+    border:none;
+}
+
+#leaveChat:hover{
+    opacity: 50%;
+}
+
+/* styling for the hr */
+.chatsep{
+    width:60vw;
+    align-self: center;
+}

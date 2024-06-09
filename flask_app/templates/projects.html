@@ -1,0 +1,47 @@
+{% extends 'shared/layout.html' %}
+{% block maincontent %}
+<main>
+      <!--grid to contain contents of main body-->
+      <div class="mainbody">
+
+        <!--page title-->
+        <div class="pagetitle">
+          <p>
+            Below is a list of projects that I worked on in CSE 477 <br>
+            Click an image, or hyperlink in the description to learn more.
+            <hr><br>
+          </p>
+        </div>
+
+        <!--displaying an image within the container, creating a link in hidden display behind the image-->
+        <div class="imgcontainer"><a id = "pianolink" href = "/piano"></a></div>
+
+        <!--container for text-->
+        <div class="textcontainer">
+          <h1 class = "h1">Javascript Piano</h1>
+          <p class = "txt">
+                            As part of my first Homework assignment
+                            in CSE477, I developed an interactive
+                            piano build in pure HTML, CSS, and
+                            Javascript. This tool (in addition to my webpage)
+                            highlight my ability to build 
+                            beautiful and mobile friendly front-end
+                            applications. <a href = /piano>Click 
+                            here to see and play!</a>             
+          </p>
+        </div>
+        <div class ="wordleimgcontainer"><a id = "pianolink" href = "/wordle"></a></div>
+        <div class="textcontainer">
+          <h1 class = "h1">Wordle</h1>
+          <p class = "txt">
+                            As part of my final assignment
+                            in CSE477, I developed a Wordle Game.
+                             <a href = /wordle>Click 
+                            here to see and play!</a>             
+          </p>
+        </div>
+        
+  
+      </div>
+    </main>
+{% endblock %}

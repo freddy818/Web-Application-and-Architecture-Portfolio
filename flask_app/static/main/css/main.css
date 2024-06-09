@@ -1,0 +1,102 @@
+/** applying some styles for main */
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/** main container used to hold the content of main */
+.mainbody{
+    display: grid;
+
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50vh;
+
+    width: 80vw;
+    height: 50vh;
+
+    padding-top: 10vh;
+
+    position: relative;
+}
+
+/** the container in the grid that will hold a body of text */
+.textcontainer{
+    object-fit: cover;
+
+ 
+    max-height: 100%;
+
+    overflow: scroll;
+
+    padding-left: 2%;
+    margin-top: 25%;
+}
+/** styling for a header inside text container */
+.h1{
+    font-size: 150%;
+    margin: 0;
+}
+
+/** styling for the text in textcontainer */
+.txt{
+    font-size: 95%;
+    margin: 0;
+}
+
+/** container used to hold an image*/
+.imgcontainer{
+    justify-content: center;
+    align-items: center;
+
+    overflow: auto;
+
+    background-image: url(/static/main/images/portrait.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+    min-height: 100%;
+}
+
+/** the styling for the fun fact portion, it will be another row in the grid*/
+.funfact{
+    margin: auto;
+
+    width: 80vw;
+    height: auto;
+
+    align-items: center;
+    text-align: center;
+    justify-content: center;    
+}
+
+/** styling for hr */
+hr {
+    width:100%;
+    text-align:center;
+}
+
+/** adjusting styling and grid layout when screen size <650px */
+@media screen and (max-width:650px){
+    .mainbody{
+        grid-template-columns: 1fr;
+        grid-template-rows: 5fr 1fr;
+
+        max-width: 80vh;
+        min-width: 80%;
+        height: fit-content; /** height is set to this to make sure that the overflown text will be considered part of the grid*/
+    }
+
+    .imgcontainer{
+        height: 100%;
+    }
+    .textcontainer{
+        overflow: visible;
+
+        padding-left: 0;
+        margin: 0;
+    }
+   
+}
+
+

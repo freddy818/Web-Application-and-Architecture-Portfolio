@@ -1,0 +1,32 @@
+{% extends 'shared/layout.html' %}
+
+{% block extrajs %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+{% endblock %}
+
+{% block maincontent %}
+<!--container to display all the input fields-->
+<div class = "maincontainer">
+    <h1>Login</h1>
+    <form>
+        <input id ="email" type="text" name="email" placeholder = "Your Email" title = "Enter your email.">
+        <br><br>
+        <input id ="password" type = "password" name="Name" placeholder = "Password" title = "Enter your password.">
+        <br><br>
+        <input id = "loginbutton" type="button" name = "Login" value = "Login" title = "Click to login.">
+        <br><br>
+    </form>
+    <!--when someone has failed to login 1 or more times, display how many login attempts theyve tried-->
+    {% if attempts > 0 %}
+    <p id="authenticate">Authentication failure: {{attempts}}</p>
+    {% endif %}
+    <a href = /signup>
+        <button id = "loginbutton">Are you new? Click here to sign up </button>
+    </a>
+
+ 
+</div>
+{% endblock %}
+
+
+

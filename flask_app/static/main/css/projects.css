@@ -1,0 +1,144 @@
+/** make the main body a flex box to display the items in the page*/
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/** Container that holds the main content of the main body */
+.mainbody{
+    display: grid; /** using a grid */
+
+    grid-template-columns: 50% 50%; /** split columns evenly */
+    grid-template-rows: .2fr 1fr 1fr; /** first row is just a line of text, less space is allocated for the row */
+
+    width: 80vw;
+    height: 50vh;
+
+    padding-top: 10vh;
+
+    position: relative;
+}
+
+/* the top row of the grid, just quick info about the page **/
+.pagetitle{
+    grid-row: 1;
+    grid-column: span 2;
+
+    width: 80vw;
+    height: auto;
+
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    
+}
+
+/**  A container to hold a text box within the grid*/
+.textcontainer{
+
+    max-height: 100%;
+
+    overflow: scroll;
+
+    padding-left: 2%;
+    margin-top: 10%;
+}
+
+/** styling for a header used in the text container */
+.h1{
+    font-size: 150%;
+    margin: 0;
+}
+
+/** styling for the text within the container */
+.txt{
+    font-size: 95%;
+    margin: 0;
+}
+
+/**  A container to display an image inside the grid*/
+.imgcontainer{
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+
+    background-image: url(/static/main/images/piano.jpeg); /**  using a background image to display container*/
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    border: 1%;
+    border-color: #000;
+    border-style: solid;
+
+
+}
+
+/**  A container to display a world image inside the grid*/
+.wordleimgcontainer{
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+
+    background-image: url(/static/main/images/Wordle-Logo.jpg); /**  using a background image to display container*/
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    border: 1%;
+    border-color: #000;
+    border-style: solid;
+
+
+}
+
+/** since the img container uses a background image, in order to make the image a clickable link
+    an invisible display that contains a link will be used */
+#pianolink{
+    display: block;
+
+    position: relative;
+
+    height: 100%;
+    width: auto;
+}
+
+/* styling for hr **/
+hr {
+    width:100%;
+    text-align:center;
+}
+
+@media screen and (max-width:650px){
+
+    /* changing grid format and styling when it gets to size <650 **/
+    .mainbody{
+        grid-template-columns: 1fr;
+        grid-template-rows: .2fr 1fr 1fr 1fr;
+
+        max-width: 80vh;
+        min-width: 80%;
+
+        height: auto;
+    }
+
+    .imgcontainer{
+        min-height: auto;
+    }
+    .textcontainer{
+        overflow: visible;
+
+        padding: 0;
+        margin: 0;
+    }
+    .pagetitle{
+        width: auto;
+        max-height: auto;
+
+        grid-column: span 1;
+    }
+}
+
+

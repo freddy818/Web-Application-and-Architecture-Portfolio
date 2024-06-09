@@ -1,0 +1,49 @@
+/** container to display the fields*/
+.maincontainer{
+    display: grid;
+
+    position: relative;
+
+
+    align-items: center;
+    text-align: center;
+
+    justify-content: center;
+    justify-content: center;
+    justify-items: center;
+}
+/* styling for email */
+#email{
+    width: 30vw;
+    height: 5vh;
+
+    font-size: 1vw;
+}
+/* styling for password field */
+#password{
+    width: 30vw;
+    height: 5vh;
+
+    font-size: 1vw;
+}
+
+/* styling for the submit button */
+#loginbutton{
+    width: 30vw;
+    height: 5vh;
+    padding: none;
+    margin: none;
+    background-color: #8888f2;
+    color: #fff;
+    justify-content: center;
+    align-items: center;
+}
+#loginbutton:hover{
+    background-color: #fff;
+    color: #000;
+}
+
+/* styling for the attempts display */
+#authenticate{
+    color: #ff0000;
+}

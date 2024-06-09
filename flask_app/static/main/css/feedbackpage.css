@@ -1,0 +1,27 @@
+/** A container for the title part of the page */
+.container
+{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    max-width: 90vw;
+    justify-self: center;
+    justify-content: center;
+}
+
+/** Formatting the list that the information appears in*/
+.feedbacklist
+{
+    margin-left: 10vw;
+   
+    width: 80vw;
+    margin-top: 1vh;
+}
+
+/** Formatting each item in the list that the information appears in */
+.feedbacklistitem
+{
+    margin-top: 1vh;
+    width: 60vw;
+}

@@ -1,0 +1,186 @@
+/* Create a container with this styling to hold all items */
+.maincontainer
+{
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  justify-items: center;
+}
+
+/* container for the board */
+#board 
+{
+  display: grid;
+  align-items: center;
+  width: 100%;
+
+  /* justify-items: center; */
+  margin-bottom: 5vh;
+
+}
+
+/* container for the leaderboard, it is opacity zero so it will not be seen until the game is done */
+#leaderboard 
+{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: space-evenly;
+  width: inherit;
+  height: auto;
+  font-size: 2em;
+  position: absolute;
+  opacity: 0;
+
+
+  background-color: #7e7777;
+  color: #fff;
+
+
+}
+
+/* a container for the items in each row of the leader board */
+.leaderboardrow
+{
+  display: flex;
+  justify-content: center;
+}
+  
+/* element for each tile in the board */
+.boardtile
+{
+  display: flex;
+
+
+  height: 5em;
+  width: 100%;
+
+  justify-content: center;
+  align-items: center;
+
+  border: .05vw solid #000;
+  margin: 0.5%;
+
+  font-size: 100%;
+
+  text-transform: uppercase;
+}
+
+/* container for the rows in a board */
+.boardrow 
+{
+  display: flex;
+}
+
+/* container for the keyboard */
+#keyboard{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* styling for each button on the keyboard */
+.keyboardbutton 
+{
+  background-color: #9a9a9a;
+  color: #fff;
+  font-size: 100%;
+  padding: .9em;
+  cursor: pointer;
+  border: 0;
+  margin: 0.1em;
+}
+
+/* styling for an error notification */
+#errornotif
+{
+
+  display: none;
+  width: 10em;
+
+  justify-content: center;
+
+  background-color: #656363;
+  color: #fff;
+
+  position: fixed;
+
+  bottom: 70%;
+  left: 45%;
+  z-index: 1000000;
+
+
+  padding: 1em;
+  margin-left: -2.5em;
+}
+
+/* styling for an instructinos container */
+#instructions
+{
+
+  display: flex;
+  flex-direction: column;
+  width: 20em;
+  height: auto;
+
+  justify-content: space-evenly;
+
+  background-color: #656363;
+  color: #fff;
+
+  position: fixed;
+
+  font-size: 2em;
+  /* left: 40%; */
+  z-index: 1000000;
+
+  bottom: 20%;
+
+  padding: 1em;
+  /* margin-left: -2.5em; */
+
+}
+
+/* A class that will apply a flip animation */
+.flip 
+{
+  animation: flip 500ms;
+}
+
+/* apply these effects at each keyframe specified */
+@keyframes flip {
+  0% 
+  {
+  background: #fff;
+  transform: scaleY(1);
+  }
+
+  50% 
+  {
+    background: #fff;
+    transform: scaleY(0);
+  }
+
+  100% 
+  {
+    transform: scaleY(1);
+  }
+}
+
+/* an overlay that will cover up the board when the instructions are on screen */
+#overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  z-index: 999; /* Set a higher z-index to make sure it covers other elements */
+}
+
+/* A class for disabling the board */
+#disable {
+  display: none;
+}

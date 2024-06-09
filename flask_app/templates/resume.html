@@ -1,0 +1,75 @@
+{% extends 'shared/layout.html' %}
+
+{% block maincontent %}
+<main>
+    <!--Initial divider so that there is one at the top of the page-->
+    <hr class = "separator">
+
+    {% for inst in data.values() %}
+    <!--parent container for each institution-->
+    <div class = "parentContainers">
+        <h1 class = "instName">{{inst['name']}}</h1>
+
+        <!--set these variables to these values, if the inst dict returns NULL, set variable to empty string-->
+        {% set inst_city = inst['city'] if inst['city'] != 'NULL' else "" %}
+        {% set inst_state = inst['state'] if inst['state'] != 'NULL' else "" %}
+        {% set inst_address = inst['address'] if inst['address'] != 'NULL' else "" %}
+        {% set inst_zip = inst['zip'] if inst['zip'] != 'NULL' else "" %}
+        
+        <!--display the info on the right side of the page, add a comma after each piece of info if there is only a following info string available-->
+        <h2 class = "rightalignedinfo">{{ inst_city ~ ("," if inst_city != '' and (inst_state != '' or inst_zip != '' or inst_address != '')) }}
+            {{ inst_state ~ ("," if inst_state != '' and (inst_zip != '' or inst_address != '')) }}
+            {{ inst_address ~ ("," if inst_address != '' and inst_zip != '') }}
+            {{ inst_zip }}</h2>
+        
+    </div>
+
+    {% for pos in inst['positions'].values() %}
+    <!--Create a parent container for each position-->
+    <div class = "parentContainers">
+        <h3 class = posTitle>{{pos['title']}}</h3>
+        <!--Works the same as for the inst dict, just if its NULl it sets the date to the specified strings instead of empty string-->
+        {% set start_date = pos['start_date'] if pos['start_date'] != None else "Unknown Start Date" %}
+        {% set end_date = pos['end_date'] if pos['end_date'] != None else "Current" %}
+        <h4 class = rightalignedinfo>{{start_date}} - {{end_date}}</h4>
+    </div>
+    <!--separate container to hold the position responsibilities-->
+    <div class = "innerContainer">
+        <h5 class = "posResponsibility">{{pos['responsibilities']}}</h5>
+    </div>
+    {% for exp in pos['experiences'].values() %}
+    <!--create parent container for each experience-->
+    <div class = "parentContainers">
+        <ul class = "posResponsibility">
+            <li>
+                <!--if the hyper link is null, make the name a clickable link otherwise, just make it normal text-->
+                {% set hyperlink = exp['hyperlink'] %}
+                {% if hyperlink != 'NULL' %}
+                    <a href = "{{hyperlink}}">{{exp['name']}}</a>: {{exp['description']}}
+                {% else %}
+                    {{exp['name']}}: {{exp['description']}}
+                {% endif %}
+                
+                <!--only do this if skills is not empty-->
+                {% if exp['skills'] != {} %}
+                <div class = "skills">
+                    Skills used:
+                    {% for skill in exp['skills'].values() %}  
+                    <!--print the skills in this format, make sure theres no extra comma at end of loop-->
+                    {{ skill['name']}}{% if not loop.last %}, {% endif %}
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </li>
+        </ul>
+    </div>
+    {% endfor %}
+    {% endfor %}
+
+    <hr class = "separator">
+    
+    {% endfor %}
+</main>
+
+
+{% endblock %}

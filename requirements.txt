@@ -1,0 +1,8 @@
+flask
+gunicorn
+cryptography
+requests==2.31.0
+flask-socketio
+eventlet==0.30.2
+Flask-Failsafe
+mysql-connector-python

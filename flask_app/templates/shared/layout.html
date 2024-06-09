@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang = "en">
+
+  <head>
+      <meta charset = "utf-8">
+      <meta name = "viewport" content="width=device-width,initial-scale=1">
+      <link rel = "stylesheet" href = "../static/main/css/header.css" />
+      <link rel="stylesheet" href="/static/main/css/navbar.css">
+      <link rel="stylesheet" href="/static/main/css/feedback.css">
+
+
+
+      <!-- Doing this so that a different styling sheet will be applied based off the page title-->
+      {% if title == 'Home' %}
+        <link rel="stylesheet" href="static/main/css/main.css" />
+      {% elif title == 'Projects' %}
+        <link rel="stylesheet" href="static/main/css/projects.css" />
+      {% elif title == 'Piano' %}
+        <link rel="stylesheet" href="static/piano/css/piano.css" />
+        <link rel="stylesheet" href="static/main/css/projects.css" />
+      {% elif title == 'Resume' %}
+        <link rel="stylesheet" href = "static/main/css/resume.css" />
+      {% elif title == 'Feedback' %}
+        <link rel="stylesheet" href = "static/main/css/feedbackpage.css" />
+
+      {%elif title == 'Chat' %}
+        <link rel = "stylesheet" href = "/static/main/css/chat.css">
+
+      {% elif title == 'Login' %}
+      <link rel = "stylesheet" href = "/static/main/css/login.css">
+
+      {% elif title == 'SignUp' %}
+      <link rel = "stylesheet" href = "/static/main/css/signup.css">
+
+      {% elif title == 'Wordle' %}
+      <link rel = "stylesheet" href = "/static/main/css/wordle.css">
+
+      {% endif %}
+
+      {% if title == 'Resume' or title == 'Feedback'  or title == 'Chat'  or title == 'Wordle' %}
+      <link rel="stylesheet" href="/static/main/css/resumefooter.css">
+      {% else %}
+      <link rel="stylesheet" href="/static/main/css/footer.css">
+
+      {% endif %}
+      {% block extracss %} {% endblock %}
+      {% block extrajs %} {% endblock %}
+
+      <title>{{ title }}</title>
+  </head>
+
+  <body>
+
+    <header>
+      <!--display the banner image-->
+      <div class = "banner"></div>
+
+    </header>
+
+    <nav>
+
+      <!--show the bar-->
+      <div class = "bar">
+        {% if user == 'Unknown' %}
+        <div class = "CSE">Frederick Fan's Work in CSE 477</div>
+        {% else %}
+        <div class = "CSE">Welcome {{user}}!</div>
+        {% endif %}
+        <!--button will not be shown when screen size>650px-->
+        <button id="menubutton"></button>
+
+        <!--menu will not display when button isnt clicked-->
+        <div id = "menu">
+          <a href= /home>Home <br></a> 
+            <a href = /projects>Projects<br></a>
+            <a href = /resume>Resume<br></a>
+            <a href = /chat>Chat<br></a>
+            {% if user == 'Unknown' %}
+              <a href = /login>Login<br></a>
+            {% else %}
+             <a href = /logout>Logout<br></a>
+            {% endif %}
+            <a href = "https://www.linkedin.com/in/frederick-fan-3a00481a3/">LinkedIn<br></a>
+            <button id = "close">Close Menu</button>
+        </div>
+
+          <!--what is displayed when the screen is >650px-->
+          <div id = "closedmenu">
+            <a href= /home>Home</a>
+            <a href = /projects>Projects</a>
+            <a href = /resume>Resume</a>
+            <a href = /chat>Chat<br></a>
+            {% if user == 'Unknown' %}
+              <a href = /login>Login<br></a>
+            {% else %}
+              <a href = /logout>Logout<br></a>
+            {% endif %}
+            <a href = "https://www.linkedin.com/in/frederick-fan-3a00481a3/"><img class = "linkedin" src = "../static/main/images/social-linkedin.png" alt = "LinkedIn" loading = "lazy"></a>
+          </div>
+
+      </div>
+
+    </nav>
+      {% block maincontent %}{% endblock %}
+      <!--Create a button with styling set in the css page for the button-->
+
+      <button id = "feedbackbutton">Feedback</button>
+      <!--Create a div to display the form, display will be none until the button is clicked-->
+
+      <div id = "feedbackform">
+        <!--Use these actions and methods to get the database part of the feed back to interact with this form-->
+
+        <form id = "fdback" action="/feedback" method = "POST">
+          <!--Create these areas of the form to fill out with these placeholders-->
+            <h1>Give me your feedback on my site.</h1>
+            <input class = "forminputs" type = "text" name="Name" placeholder = "Enter your name">
+            <input class = "forminputs" type = "text" name="email" placeholder = "Enter your email">
+            <input class = "forminputs" type = "text" name="comment" placeholder = "Give me some feedback">
+
+            <!--A send button created so that when you click it, it will submit the form and redirect you to feedback page-->
+            <button id = "sendbutton" form = "fdback">Send</button>
+         
+        </form>
+      </div>
+      
+    <footer>
+      <div class = "footerstyle">
+				<p>© 2023 Frederick Fan</p>
+      </div>
+    </footer>
+    <script src ="/static/main/js/home.js" defer></script>
+    <script src ="/static/main/js/feedbackbutton.js" defer></script>
+
+
+
+    <!--only use the piano script if you are actually on the piano page-->
+    {% if title == "Piano" %}
+      <script src="/static/piano/js/piano.js" defer></script>
+    {% elif title == "Login"%}
+      <script src = "/static/main/js/login.js"></script>
+    {% elif title == "Chat" %}
+      <script src = "/static/main/js/chat.js"></script>
+
+    {% elif title == "SignUp"%}
+      <script src = "/static/main/js/signup.js"></script>
+
+
+
+    {% endif %}
+  </body> 
+</html>

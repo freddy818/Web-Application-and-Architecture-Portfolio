@@ -1,0 +1,26 @@
+{% extends 'shared/layout.html' %}
+
+{% block maincontent %}
+<main>
+    <h1 class = "container">Thanks for your feedback- here's what others had to say:</h1></div>
+ 
+
+        <ul class = "feedbacklist">
+        <!--loop through the data-->
+        {% for comment in data %}
+            <!--I only want stuff to display if someone actually left a comment, so i use this conditional-->
+        {% if comment['comment'] != '' %}
+            {% if comment['name'] == '' %}
+                <!--if someone left feedback without writing their name, specify an unknown user left it-->
+                <li class ="feedbacklistitem">An unknown user said: {{ comment['comment'] }}</li>
+            {% else %}
+                <!--other wise display the feedback in this format-->
+                <li class = "feedbacklistitem">{{ comment['name'] }} said: {{ comment['comment'] }}</li>
+            {% endif %}
+        {% endif %}
+        {% endfor %}
+        </ul>
+    </div>
+    
+</main>
+{% endblock %}

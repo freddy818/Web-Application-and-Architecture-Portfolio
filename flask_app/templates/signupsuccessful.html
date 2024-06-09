@@ -1,0 +1,25 @@
+{% extends 'shared/layout.html' %}
+
+{% block extrajs %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+{% endblock %}
+<!-- A page that is virtually the same as the login page I just wanted to make it visibly apparent if a signup was successful -->
+<!-- So it will redirect to this page if the sign up worked -->
+{% block maincontent %}
+<!--container to display all the input fields-->
+<div class = "maincontainer">
+    <h1>Sign up successful! You may now login.</h1>
+    <form>
+        <input id ="email" type="text" name="email" placeholder = "Your Email" title = "Enter your email.">
+        <br><br>
+        <input id ="password" type = "password" name="Name" placeholder = "Password" title = "Enter your password.">
+        <br><br>
+        <input id = "loginbutton" type="button" name = "Login" value = "Login" title = "Click to login.">
+        <br><br>
+    </form>
+ 
+</div>
+{% endblock %}
+
+
+

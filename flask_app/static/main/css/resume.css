@@ -1,0 +1,79 @@
+/** styling for the hr that appears in between each section of the resume */
+.separator
+{
+    width: 80vw;
+}
+/** Styling for the parent containers of content */
+.parentContainers
+{
+
+    display:flex;
+
+    width: 100%;
+    max-width: 90vw;
+
+    justify-content: space-between;
+    
+    
+    align-items: center;
+
+    padding-top: 2vh;
+}
+/** styling for stuff in a container within a parent container */
+.innerContainer
+{
+    display:flex;
+
+    width: 100%;
+    max-width: 80vw;
+
+    justify-content: space-between;
+    align-items: center;
+}
+/** Styling for displaying the institution name */
+.instName
+{
+    display: inline-block;
+
+    justify-content:  space-between;
+    margin: 0;
+    margin-left: 10vw;
+
+    font-size: 2vw;
+}
+/** styling for the info that appears on the right side of the page */
+.rightalignedinfo
+{
+    display:inline-block;
+
+    margin:0;
+
+    font-size: 1vw;
+    font-weight: normal;
+}
+
+/** Styling for the position title */
+.posTitle
+{
+    display:inline-block;
+
+    margin:0;
+    margin-left: 10vw;
+
+    font-size: 1.2vw;
+}
+/** Styling for the position responsibilities */
+.posResponsibility
+{
+    display: inline-block;
+    margin: 0;
+    margin-left: 10vw;
+    font-size: 1.1vw;
+    font-weight: normal;
+}
+
+/** styling for the skills that are displayed **/
+.skills
+{
+    font-size: .7vw;
+}

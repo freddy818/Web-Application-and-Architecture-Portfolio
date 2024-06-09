@@ -1,0 +1,59 @@
+/** Create the button styling */
+#feedbackbutton
+{
+    display:flex;
+
+    color: #fff;
+    background-color: #808080;
+
+    bottom: 40%;
+    position: fixed;
+    
+    transform: translate(-40%, 0%) rotate(90deg);
+    
+
+}
+/** Styling for the form once the button is clicked */
+#feedbackform
+{
+    background-color: #808080;
+
+    display: none;
+
+    position: fixed;
+    z-index: 10000000;
+    position: fixed;
+    bottom: 30%;
+    left: 40%;  
+
+    height: fit-content;
+    width: 20vw;
+  
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    align-self: center;
+    font-size: 1vh;
+}
+
+/** Styling for each input on the form */
+.forminputs
+{
+    width: 10vw;
+
+    align-self: center;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+
+/** Styling for the send button on the form */
+#sendbutton
+{
+    align-self: center;
+    margin-bottom: 2vh;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    justify-content: space-evenly;
+}

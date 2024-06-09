@@ -1,0 +1,4 @@
+"inst_id","type","name","department","address","city","state","zip"
+"1","Academia","Michigan State University","Computer Science",426 Auditorium Rd,"East Lansing","Michigan","48824"
+"2","Academia","Troy High School","Tutor","477 Northfield Parkway","Troy","Michigan","48098"
+"3","Service","DoorDash","Delivery Driver","NULL","NULL","NULL","NULL"

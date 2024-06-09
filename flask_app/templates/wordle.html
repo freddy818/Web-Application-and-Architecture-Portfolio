@@ -1,0 +1,99 @@
+{% extends 'shared/layout.html' %}
+{% block extrajs %}
+<script src="{{ url_for('static', filename='main/js/wordle.js') }}" defer></script>
+
+{% endblock %}
+
+{% block maincontent %}
+<main>
+
+    <div class = "maincontainer">
+        <!-- disable the board is false when the user has visited the page before -->
+        {% if visits != 0 %}
+            {% set disable_board = false %}
+        {% else %}
+        <!-- board is going to be disabled if the user has not visited the page before so 
+            they cannot interact with the game while the instructions are on screen -->
+            {% set disable_board = true %}
+        {% endif %}
+
+        <div id = "disable">{{ disable_board }}</div>
+
+        <!-- first time visiting means we should show instructions -->
+        {% if visits == 0 %}
+        <div id="overlay"></div>
+
+        <div id = "instructions">Dynamic Wordle<br> How to play: <br>
+                                There is a hidden word that you have to
+                                try to guess.<br> The amount of guesses you get
+                                is equivalent to the length of the word.<br>
+                                If you guess a letter in the correct spot,
+                                the tile turns green. <br>If the letter is in the
+                                word, but in the incorrect spot, the tile
+                                turns yellow. <br>Otherwise, if the letter is not in the
+                                word at all, the tile will turn dark.
+        <button id = "closeinstructions">Close</button>
+        </div>
+        {% endif %}
+        <h1>Dynamic Wordle</h1>
+        
+
+        <!-- empty leaderboard, it only has elements added to it when the user completes the game -->
+        <div id = "leaderboard"></div>
+
+            
+
+        <div id="board">
+
+            <div id = "errornotif"></div>
+            <!-- create a board of dynamic length based on the word length -->
+            {% for i in range(word_length) %}
+                <div class = "boardrow">
+                    {% for x in range(word_length) %}
+                        <div class ="boardtile"></div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+
+
+        </div>
+        <!-- create a keyboard -->
+        <div id="keyboard">
+            <div>
+                <button class="keyboardbutton">Q</button>
+                <button class="keyboardbutton">W</button>
+                <button class="keyboardbutton">E</button>
+                <button class="keyboardbutton">R</button>
+                <button class="keyboardbutton">T</button>
+                <button class="keyboardbutton">Y</button>
+                <button class="keyboardbutton">U</button>
+                <button class="keyboardbutton">I</button>
+                <button class="keyboardbutton">O</button>
+                <button class="keyboardbutton">P</button>
+            </div>
+            <div>
+                <button class="keyboardbutton">A</button>
+                <button class="keyboardbutton">S</button>
+                <button class="keyboardbutton">D</button>
+                <button class="keyboardbutton">F</button>
+                <button class="keyboardbutton">G</button>
+                <button class="keyboardbutton">H</button>
+                <button class="keyboardbutton">J</button>
+                <button class="keyboardbutton">K</button>
+                <button class="keyboardbutton">L</button>
+            </div>
+            <div>
+                <button class="keyboardbutton">Enter</button>
+                <button class="keyboardbutton">Z</button>
+                <button class="keyboardbutton">X</button>
+                <button class="keyboardbutton">C</button>
+                <button class="keyboardbutton">V</button>
+                <button class="keyboardbutton">B</button>
+                <button class="keyboardbutton">N</button>
+                <button class="keyboardbutton">M</button>
+                <button class="keyboardbutton">Delete</button>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

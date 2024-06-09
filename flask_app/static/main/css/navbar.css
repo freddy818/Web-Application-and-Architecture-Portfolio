@@ -1,0 +1,141 @@
+/** applying styling for body */
+body{
+    margin: 0;
+    padding: 0;
+}
+
+/** creating a bar that will hold the links and etc. */
+.bar{
+    display: flex;
+    flex-direction: row;
+
+    width: 100%;
+    height: 15vh;
+
+    background: #5A5A5A;
+
+    text-align: center;
+    text-decoration: none;
+
+
+    justify-content: space-between;
+    align-items: center;
+    vertical-align: center; 
+ 
+}
+
+/** links in nav will fade out when hovered */
+nav a:hover{
+    opacity: 50%;
+}
+
+/** applying some styling for links*/
+nav a{
+    font-size: calc(.45em + 1.5vw);
+
+    padding: 1vw;
+
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/** a class used for the CSE 477 section of the bar */
+.CSE{
+    font-size: calc(.45em + 2.5vw);
+
+    margin-left: 7vw;
+
+    color: #ffffff;
+}
+
+/** class to contain the linkedin image*/
+.linkedin{
+    width: calc(1em + .55vw);
+    height: calc(1em + .55vh);
+
+    background-image: url(/static/main/images/social-linkedin.png);
+    background-size: contain;
+
+    padding: 0;
+}
+
+/** class used to contain the button image */
+#menubutton{
+    display: none;
+
+    background-image: url(/static/main/images/menu-bar.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+
+    width:  calc(1em + 10vw);
+    height: calc(1em + 10vh);
+
+    border: none;
+   
+    background-color: transparent;
+}
+
+/** container for the menu when the button will be clicked, initially displays nothing*/
+#menu{
+    display: none;
+    position: absolute;
+    font-size: 200%;
+    z-index: 10000; /** make sure the menu appears above all items on the screen at all times */
+    margin-top: 45%;
+}
+
+/** a class that will be applied to menu when the button is clicked*/
+.showmenu{
+    display: none;
+
+    min-height: fit-content;
+    width: 100%;
+
+    background-color: #000;
+
+}
+
+/** for when the menu is not open*/
+#closedmenu{
+    display: flex;
+}
+
+/** some styling for a close button on the menu */
+#close{
+    color: #ffffff;
+
+    border:none;
+    padding: none;
+
+    background-color: transparent;
+    
+    font-size: 100%;
+    
+}
+
+/** make it so that the close button fades out when hovered */
+#close:hover{
+    opacity: 50%
+}
+
+@media screen and (max-width:650px){
+    /** stop showing the default bar for when the menu isnt open*/
+    #closedmenu{
+        display:none;
+    }
+    #menubutton:hover{
+        opacity: 50%;
+    }
+    /** display the button */
+    #menubutton{
+        display: flex;
+        margin-right: 5vw;
+    }
+    /** show the menu */
+    .showmenu{
+        display: table !important;
+    }
+
+
+}
